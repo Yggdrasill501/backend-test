@@ -14,7 +14,6 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
-        'LOCATION': 'redis://redis:6379',  # Use the service name defined in docker-compose.yml
+        'LOCATION': 'redis://redis:6379'
     }
 }
-

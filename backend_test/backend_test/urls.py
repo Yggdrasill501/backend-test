@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """Urls."""
-from django.urls import path, include
-from registration_app.views import UserRegistrationStats
-
+import django.urls
+import registration_app.views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/user-registrations/', UserRegistrationStats.as_view(), name='user-registrations'),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    # pylint: disable=undefined-variable
+    django.urls.path('admin/', admin.site.urls),
+    django.urls.path('api/user-registrations/', registration_app.views.UserRegistrationStats.as_view(), name='user-registrations'),
+    django.urls.path('api-auth/', registration_app.views.include('rest_framework.urls', namespace='rest_framework')),
 ]
-
